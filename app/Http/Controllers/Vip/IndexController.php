@@ -15,4 +15,38 @@ class IndexController extends Controller
         print_r($user);
         //dd($user);
     }
+    public function add(){
+        $data=[
+            'username'=>str_random(5),
+            'userpwd'=>str_random(8),
+            'usernum'=>str_random(11),
+        ];
+        $res=UserModel::insert($data);
+        var_dump($res);
+    }
+    public function update($id){
+        $data=[
+            'usernum'=>1111111111
+        ];
+        $where=[
+            'user_id'=>$id
+        ];
+        $res=UserModel::where($where)->update($data);
+        var_dump($res);
+    }
+    public function delete($id){
+        $where=[
+            'user_id'=>$id
+        ];
+        $res=UserModel::where($where)->delete();
+        var_dump($res);
+    }
+    public function list(){
+        $list=UserModel::all();
+        $data=[
+            'list'=>$list,
+            'page'=>333
+        ];
+        return view('user.list',$data);
+    }
 }

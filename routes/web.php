@@ -16,4 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('/order','Order@order');
-Route::get('/user/{id}','Vip\IndexController@index');
+Route::get('/user/index/{id}','Vip\IndexController@index');
+Route::get('/user/add','Vip\IndexController@add');
+Route::get('/user/update/{id}','Vip\IndexController@update');
+Route::get('/user/delete/{id}','Vip\IndexController@delete');
+Route::get('/user/list','Vip\IndexController@list');
